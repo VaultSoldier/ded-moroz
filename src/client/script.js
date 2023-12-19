@@ -3,7 +3,6 @@ import user from "./assets/user.jpg";
 
 const chatContainer = document.querySelector("#chat_container");
 const button = document.querySelector('button');
-const textarea = document.querySelector('textarea');
 const text = document.getElementById('myTextarea')
 
 
@@ -94,7 +93,7 @@ const handleSubmit = async (e) => {
   const data = new FormData(form);
 
   // user's chatstripe
-  chatContainer.innerHTML += chatStripe(false, data.get("prompt"));
+  chatContainer.innerHTML += chatStripe(false, data.get("textPrompt"));
 
   // to clear the textarea input
   form.reset();
@@ -113,13 +112,13 @@ const handleSubmit = async (e) => {
   loader(messageDiv);
 
   // fetch data from server -> bot's response
-  const response = await fetch("https://backend.lockeroom.ru", {
+  const response = await fetch("http://localhost:5000", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      prompt: data.get("prompt"),
+      textPrompt: data.get("textPrompt"),
     }),
   });
 
