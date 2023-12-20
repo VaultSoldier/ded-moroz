@@ -112,7 +112,7 @@ const handleSubmit = async (e) => {
   loader(messageDiv);
 
   // fetch data from server -> bot's response
-  const response = await fetch(process.env.SERVER_URL, {
+  const response = await fetch("https://backend.lockeroom.ru", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
