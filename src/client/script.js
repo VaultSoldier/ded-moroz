@@ -2,16 +2,9 @@ import bot from "./assets/bot.jpg";
 import user from "./assets/user.jpg";
 
 const chatContainer = document.querySelector("#chat_container");
-const button = document.querySelector('button');
+const button = document.getElementById('submitButton');
 const text = document.getElementById('myTextarea')
-
-
-button.addEventListener('click', () => {
-  const element = document.querySelector('.default-text');
-  element.style.display = 'none';
-  button.addEventListener("click", disableButton);
-  disablePrompt();
-});
+const element = document.querySelector('.default-text');
 
 function disablePrompt() {
   text.disabled = true;
@@ -112,7 +105,7 @@ const handleSubmit = async (e) => {
   loader(messageDiv);
 
   // fetch data from server -> bot's response
-  const response = await fetch("https://backend.lockeroom.ru", {
+  const response = await fetch("http://localhost:5000", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -138,13 +131,20 @@ const handleSubmit = async (e) => {
   }
 };
 
-form.addEventListener("submit", handleSubmit);
 form.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {
     handleSubmit(e);
-    const element = document.querySelector('.default-text');
     element.style.display = 'none';
     disablePrompt();
     disableButton();
   }
 });
+
+button.addEventListener('click', (e) => {
+  handleSubmit(e);
+  element.style.display = 'none';
+  disablePrompt();
+  disableButton();
+});
+
+form.addEventListener("submit", handleSubmit);
