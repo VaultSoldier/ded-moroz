@@ -5,16 +5,17 @@ services:
     image: ded-client:latest
     container_name: client
     environment:
-      TZ: 'Asia/Yekaterinburg'
+      SERVER_URL: "http://localhost:5000"
     restart: always
     ports:
       - "1010:5180"
 
   server:
     image: ded-server:latest
-    container_name: client
+    container_name: server
     environment:
-      TZ: 'Asia/Yekaterinburg'
+      OPENAI_API_KEY: ""
+      PORT: "5000"
     restart: always
     ports:
       - "5000:5000"

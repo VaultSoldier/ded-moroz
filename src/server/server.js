@@ -3,7 +3,7 @@ import cors from "cors";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: '',
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const app = express();
@@ -49,6 +49,7 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(5000, () =>
-    console.log("AI server started on http://localhost:5000")
+var port = process.env.PORT || 3000;
+app.listen(port, () =>
+    console.log("AI server started on http://localhost:" + port)
 );
