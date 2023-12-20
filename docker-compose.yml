@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    image: ded-client:latest
+    container_name: client
+    environment:
+      TZ: 'Asia/Yekaterinburg'
+    restart: always
+    ports:
+      - "1010:5180"
+
+  server:
+    image: ded-server:latest
+    container_name: client
+    environment:
+      TZ: 'Asia/Yekaterinburg'
+    restart: always
+    ports:
+      - "5000:5000"
