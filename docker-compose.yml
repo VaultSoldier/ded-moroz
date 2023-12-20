@@ -4,8 +4,6 @@ services:
   web:
     image: ded-client:latest
     container_name: client
-    environment:
-      SERVER_URL: "http://localhost:5000"
     restart: always
     ports:
       - "1010:5180"
