@@ -2,14 +2,14 @@ version: "3"
 
 services:
   web:
-    image: ded-client:latest
+    image: ded-moroz:client-latest
     container_name: client
     restart: always
     ports:
       - "1010:5180"
 
   server:
-    image: ded-server:latest
+    image: ded-moroz:server-latest
     container_name: server
     environment:
       OPENAI_API_KEY: ""
