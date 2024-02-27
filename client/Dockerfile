@@ -10,4 +10,4 @@ FROM build AS final
 WORKDIR /app
 ENV API_URL="http://localhost:5000"
 EXPOSE 5180
-CMD [ "./script.sh" ]
+CMD [ "./entrypoint.sh" ]
