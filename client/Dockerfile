@@ -2,12 +2,12 @@ FROM node:21.4.0-alpine3.18 AS build
 
 WORKDIR /app
 COPY . .
-RUN chmod +x entrypoint.sh
+ENV API_URL="http://localhost:5000"
+RUN sed -i "s#http://localhost:5000#$API_URL#g" script.js
 RUN npm i
 
 FROM build AS final
 
 WORKDIR /app
-ENV API_URL="http://localhost:5000"
 EXPOSE 5180
-CMD [ "./entrypoint.sh" ]
+CMD [ "npm", "run", "dev" ]
