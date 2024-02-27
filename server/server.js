@@ -49,7 +49,7 @@ app.post("/", async (req, res) => {
   }
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 app.listen(port, () =>
     console.log("AI server started on http://localhost:" + port)
 );
