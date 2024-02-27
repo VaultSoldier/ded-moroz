@@ -4,6 +4,9 @@ services:
   web:
     image: ded-moroz:client-latest
     container_name: client
+    environment:
+      # https://example.com
+      API_URL: ""
     restart: always
     ports:
       - "1010:5180"
