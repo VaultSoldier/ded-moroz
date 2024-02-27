@@ -1,3 +1,5 @@
+FROM node:21.4.0-alpine3.18 AS build
+
 WORKDIR /app
 COPY . .
 RUN chmod +x entrypoint.sh
