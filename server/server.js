@@ -25,7 +25,7 @@ app.post("/", async (req, res) => {
       messages: [
         {
           "role": "system",
-          "content": process.env.INSTRUCTIONS,
+          "content": process.env.INSTRUCTIONS || "Ты ИИ",
         },
         {
           "role": "user",
