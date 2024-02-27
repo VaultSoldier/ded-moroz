@@ -13,6 +13,7 @@ services:
     container_name: server
     environment:
       OPENAI_API_KEY: ""
+      API_URL: ""
       PORT: "5000"
     restart: always
     ports:

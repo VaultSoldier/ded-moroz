@@ -6,4 +6,5 @@ RUN npm i
 
 FROM build AS final
 WORKDIR /app
+EXPOSE 5000
 ENTRYPOINT ["node", "server.js"]
